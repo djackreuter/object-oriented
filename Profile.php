@@ -43,8 +43,8 @@ class Profile {
 	 * @throws UnexpectedValueException if $newProfileId is not an integer
 	 **/
 	public function setProfileId($newProfileId) {
-	// verify the profile id is valid
-	$newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
+		// verify the profile id is valid
+		$newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
 		if($newProfileId === false) {
 			throw(new UnexpectedValueException("profile id is not a valid integer"));
 		}
@@ -53,14 +53,14 @@ class Profile {
 		$this->profileId = intval($newProfileId);
 	}
 
-/**
- * accessor method for user id
- *
- * @return int value of user id
- **/
+	/**
+	 * accessor method for user id
+	 *
+	 * @return int value of user id
+	 **/
 	public function getUserId() {
 		return($this->userId);
-		}
+	}
 
 	/**
 	 * mutator method for user id
@@ -72,7 +72,7 @@ class Profile {
 		// verify new user id is valid
 		$newUserId = filter_var($newUserId, FILTER_VALIDATE_INT);
 		if($newUserId === false) {
-		throw(new UnexpectedValueException("user id is not a valid integer"));
+			throw(new UnexpectedValueException("user id is not a valid integer"));
 		}
 		// convert and store the profile id
 		$this->userId = intval($newUserId);
@@ -83,25 +83,25 @@ class Profile {
 	 *
 	 * @return string value of first name
 	 **/
-		public function getFirstName() {
-			return($this->firstName);
-		}
+	public function getFirstName() {
+		return($this->firstName);
+	}
 
-		/**
-		 * mutator method for first name
-		 *
-		 * @param string $newFirstName new value of first name
-		 * @throws UnexpectedValueException if $newFirstName is not valid
-		 **/
-		public function setFirstName($newFirstName) {
-			// verify the first name is valid
-			$newFirstName = filter_var($newFirstName, FILTER_SANITIZE_STRING);
-			if($newFirstName === false) {
-				throw(new UnexpectedValueException("first name is not a valid string"));
-			}
-			// store the first name
-			$this->firstName = $newFirstName;
+	/**
+	 * mutator method for first name
+	 *
+	 * @param string $newFirstName new value of first name
+	 * @throws UnexpectedValueException if $newFirstName is not valid
+	 **/
+	public function setFirstName($newFirstName) {
+		// verify the first name is valid
+		$newFirstName = filter_var($newFirstName, FILTER_SANITIZE_STRING);
+		if($newFirstName === false) {
+			throw(new UnexpectedValueException("first name is not a valid string"));
 		}
+		// store the first name
+		$this->firstName = $newFirstName;
+	}
 	/**
 	 * accessor method for last name
 	 *
