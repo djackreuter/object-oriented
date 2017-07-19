@@ -148,6 +148,21 @@ class Profile {
 		// store the last name
 		$this->lastName = $newLastName;
 	}
+
+	/**
+	 * toString() magic method
+	 *
+	 * @return string HTML formatted profile
+	 **/
+	public function __toString() {
+		// create an HTML formatted profile
+		$html = "<p>Profile id: " . $this->profileId
+			. "User id: "          . $this->userId      . "<br />"
+			. "First name:"        . $this->firstName   . "<br />"
+			. "Last name:"         . $this->lastName    . "<br />"
+			. "</p>";
+		return($html);
+	}
 }
 
 
