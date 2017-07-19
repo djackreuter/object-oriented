@@ -28,6 +28,27 @@ class Profile {
 	private $lastName;
 
 	/**
+	 * constructor for this Profile
+	 *
+	 * @param int $newProfile new profile id
+	 * @param int $newUserId new user id
+	 * @param string $newFirstName new first name
+	 * @param string $newLastName new last name
+	 * @throws UnexpectedValueException if any of the parameters are invalid
+	 **/
+	public function __construct($newProfileId, $newUserId, $newFirstName, $newLastName) {
+		try {
+			$this->setProfileId($newProfileId);
+			$this->setUserId($newUserId);
+			$this->setFirstName($newFirstName);
+			$this->setLastName($newLastName);
+		} catch(UnexpectedValueException $exception) {
+			// rethrow to the caller
+			throw(new UnexpectedValueException("Unable to construct Profile", 0, $exception));
+		}
+	}
+
+	/**
 	 * accessor method for profile id
 	 *
 	 * @return int value of profile id
@@ -68,7 +89,7 @@ class Profile {
 	 * @param int $newUserId new value of profile id
 	 * @throws UnexpectedValueException if $newUserId is not an integer
 	 **/
-	public function setUserId($newUserId) {
+		public function setUserId($newUserId) {
 		// verify new user id is valid
 		$newUserId = filter_var($newUserId, FILTER_VALIDATE_INT);
 		if($newUserId === false) {
