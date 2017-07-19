@@ -1,32 +1,48 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Object Oriented</title>
-		<meta charset="utf-8"/>
-	</head>
-	<body>
-		<p>
-			<?php
-			class Person {
-				public $isAlive = true;
-				public $name;
-				public $age;
-				public $location;
+<?php
+/**
+ * typical profile for an eCommerce site; one line description of the class
+ *
+ * this Profile is an abbreviated example of data collected and stored about a user for eCommerce purposes; this can
+ * be extended to include more info such as email, phone number, etc; more
+ * detailed description of the class
+ *
+ * @author Jack Reuter <djreuter45@gmail.com>
+ **/
 
-				public function __construct($name, $age, $location) {
-					$this->name = $name;
-					$this->age = $age;
-					$this->location = $location;
-				}
-				public function greet() {
-					return "My name is " . $this->name . " " . "I am " . $this->age . " " . "years old " . "and I live in " .
-						$this->location . ".";
-				}
-			}
+class Profile {
+	/**
+	 * id for this profile; this is the primary key
+	 **/
+	private $profileId;
+	/**
+	 * id for the user who owns this profile; this is a foreign key
+	 **/
+	private $userId;
+	/**
+	 * first name of this person
+	 */
+	private $firstName;
+	/**
+	 * last name of this person
+	 **/
+	private $lastName;
 
-			$person1 = new Person("Jack", 24, "Albuquerque, NM");
-			echo $person1->greet();
-			?>
-		</p>
-	</body>
-</html>
+	/**
+	 * accessor method for profile id
+	 *
+	 * @return int value of profile id
+	 **/
+	public function getProfileId() {
+	return($this->profileId);
+	}
+
+	/**
+	 * mutator method for profile id
+	 *
+	 * @param int $newProfileId new value of profile id
+	 * @throws unexpectedValueException if $newProfileId is not an integer
+	 **/
+
+}
+
+?>
